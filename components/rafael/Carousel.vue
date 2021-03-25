@@ -1,91 +1,59 @@
 <template>
-    <div class="carousel">
-        <div class="mobile">
-            <el-carousel
-                :interval="4000"
-                arrow="aways"
-                height="90vh"
-                indicator-position="none"
-            >
-                <el-carousel-item v-for="exemplo in exemplos" :key="exemplo.id">
-                    <el-card>
-                        <div class="card__header" slot="header">
-                            <img
-                                :src="
-                                    require(`@/assets/img/exemplos/${exemplo.img}.jpg`)
-                                "
-                                :alt="exemplo.title"
-                            />
-                            <h2>
-                                {{ exemplo.title }}
-                            </h2>
-                        </div>
-                        <div class="card__body">
-                            <p>
-                                {{ exemplo.desc }}
-                            </p>
-                        </div>
-                    </el-card>
-                </el-carousel-item>
-            </el-carousel>
+    <div class="grid grid-cols-2 grid-rows-1 gap-x-24">
+        <div>
+            <vueper-slides class="no-shadow rounded-md overflow-hidden slide" fixed-height="600px" autoplay>
+                <vueper-slide
+                    v-for="exemplo in exemplos"
+                    :key="exemplo.id"
+                    :image="exemplo.img"
+                ></vueper-slide>
+            </vueper-slides>
+            <div></div>
         </div>
-        <div class="desktop">
-            <el-carousel
-                type="card"
-                :interval="4000"
-                arrow="never"
-                indicator-position="none"
-                height="70vh"
-            >
-                <el-carousel-item v-for="exemplo in exemplos" :key="exemplo.id">
-                    <el-card>
-                        <div
-                            class="card__header grid grid-cols-2"
-                            slot="header"
-                        >
-                            <div class="img-wrapper">
-                                <img
-                                    :src="
-                                        require(`~/assets/img/exemplos/${exemplo.local}.jpg`)
-                                    "
-                                    :alt="exemplo.title"
-                                />
-                            </div>
-                            <h2>
-                                {{ exemplo.title }}
-                            </h2>
-                        </div>
-                        <div class="card__body">
-                            <p>
-                                {{ exemplo.desc }}
-                            </p>
-                        </div>
-                    </el-card>
-                </el-carousel-item>
-            </el-carousel>
+        <div>
+            <div class="text-wrapper">
+                <div class="title">
+                    <h1>Clientes</h1>
+                </div>
+                <div class="sub-title">
+                    <p>
+                        Estes são alguns clientes que confiaram e estão
+                        realizando seus sonhos
+                    </p>
+                    <p>
+                        Faça parte dessa lista você também!
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 import db from "~/plugins/fb";
+import { VueperSlides, VueperSlide } from 'vueperslides';
+import 'vueperslides/dist/vueperslides.css';
 export default {
     name: "Carousel",
+    components: {
+        VueperSlides,
+        VueperSlide
+    },
     data() {
         return {
             exemplos: []
         };
     },
     created() {
-        // Acessa a coleção 'exemplos'
+        // Acessa a coleção "exemplos"
         db.collection("exemplos").onSnapshot(res => {
             // Pega todas as mudanças feitas na coleção
             const changes = res.docChanges();
             // Para cada mudança
             changes.forEach(change => {
-                // Se a mudança for do tipo 'adicionada'
+                // Se a mudança for do tipo "adicionada"
                 if (change.type === "added") {
-                    // Coloque a mudança no array exemplos
+                    // Coloque a mudança no array "exemplos"
                     this.exemplos.push({
                         ...change.doc.data(),
                         id: change.doc.id
@@ -98,69 +66,13 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.card__header img {
-    border-radius: 12px;
+.slide {
+    @apply p-1 md:p-2;
+    @apply bg-gradient-to-bl;
+    @apply from-primary-400 via-secondary-400 to-yellow-400;
 }
 
-.mobile {
-    @apply md:hidden;
-}
-
-.desktop {
-    @apply hidden md:block;
-}
-
-.mobile .el-carousel {
-    @apply rounded-xl;
-    margin: -2rem;
-}
-
-.mobile .el-card {
-    @apply rounded-xl;
-    @apply bg-secondary-300;
-    min-height: 100%;
-}
-
-.mobile .card__header h2 {
-    color: white;
-    margin: 8px;
-    margin-bottom: 0;
-    font-size: 1.7rem;
-}
-
-.mobile .card__body p {
-    color: white;
-    font-size: 1.2rem;
-}
-
-.desktop .el-card {
-    border-radius: 12px;
-    @apply bg-secondary-300;
-}
-
-.desktop .img-wrapper {
-    background-color: white;
-    padding: 2px;
-    border-radius: 12px;
-    @apply shadow-xl;
-}
-
-.desktop .card__header img {
-    width: 100%;
-}
-
-.desktop .card__header h2 {
-    height: 100%;
-    width: 100%;
-    padding: 1rem;
-    font-size: 3.5rem;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.desktop .card__body p {
-    color: #eee;
+.thumbnails .vueperslide {
+    cursor: default;
 }
 </style>

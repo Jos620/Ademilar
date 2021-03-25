@@ -1,6 +1,6 @@
 <template>
     <div id="rafael">
-        <div class="grid">
+        <div class="grid hero">
             <div class="img-wrapper">
                 <div class="img-rafael"></div>
             </div>
@@ -10,7 +10,7 @@
                 </div>
                 <div class="sub-title">
                     <p>
-                        A mais de XX anos levando pessoas a alcançarem metas e
+                        A mais de 7 anos levando pessoas a alcançarem metas e
                         realizarem sonhos através do consórcio.
                     </p>
                 </div>
@@ -38,20 +38,12 @@
             <div class="carousel">
                 <carousel />
             </div>
-            <div class="convite">
-                <p>
-                    Estes são alguns exemplos de pessoas que confiaram na
-                    Ademilar e estão atualmente realizando seus sonhos. Seja
-                    você a próxima pessoa a entrar para essa lista e realizar os
-                    seus sonhos!
-                </p>
-            </div>
         </div>
     </div>
 </template>
 
 <script>
-import Carousel from "../components/rafael/Carousel";
+import Carousel from "~/components/rafael/Carousel";
 export default {
     name: "Rafael",
     components: {
@@ -88,7 +80,7 @@ export default {
     font-family: Poppins, "Segoe UI", sans-serif;
 }
 
-.grid {
+.grid.hero {
     @apply gap-x-24 gap-y-10;
     @apply grid-cols-2;
     @apply grid-rows-2;
@@ -152,12 +144,6 @@ export default {
 
 .carousel {
     @apply col-span-2;
-}
-
-.convite {
-    @apply col-span-2;
-    margin: 1rem;
-    margin-top: 2rem;
 }
 
 @screen sm {
