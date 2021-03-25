@@ -69,6 +69,37 @@ export default {
                 }
             ]
         };
+    },
+    head() {
+        return {
+            title: "Sobre | Rafael Luiz",
+            meta: [
+                {
+                    hid: "description",
+                    name: "description",
+                    content:
+                        "A 7 anos atuando na área do consórcio, estou aqui para te auxiliar e ajudar a conquistar o que sempre sonhou. Prazer, sou Rafael Luiz."
+                },
+                {
+                    property: "og:title",
+                    content: "Sobre | Rafael Luiz"
+                },
+                {
+                    property: "og:description",
+                    content:
+                        "A 7 anos atuando na área do consórcio, estou aqui para te auxiliar e ajudar a conquistar o que sempre sonhou. Prazer, sou Rafael Luiz."
+                },
+                {
+                    name: "twitter:title",
+                    content: "Sobre | Rafael Luiz"
+                },
+                {
+                    name: "twitter:description",
+                    content:
+                        "A 7 anos atuando na área do consórcio, estou aqui para te auxiliar e ajudar a conquistar o que sempre sonhou. Prazer, sou Rafael Luiz."
+                }
+            ]
+        };
     }
 };
 </script>
