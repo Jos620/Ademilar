@@ -21,6 +21,7 @@
                     v-for="(link, i) in links"
                     :key="i"
                     :class="`float-link ${link.classes}`"
+                    target="_blank"
                 >
                     <img
                         :src="require(`~/assets/svg/social/${link.name}.svg`)"
