@@ -33,6 +33,7 @@ export default {
      */
     plugins: [
         "~/plugins/element-ui.js",
+        "~/plugins/fb.js",
         {
             src: "~/plugins/aos",
             // Impede que o plugin seja rodado no servidor, então ele é executado no lado do cliente

@@ -46,7 +46,7 @@
                             <div class="img-wrapper">
                                 <img
                                     :src="
-                                        require(`@/assets/img/exemplos/${exemplo.img}.jpg`)
+                                        require(`~/assets/img/exemplos/${exemplo.local}.jpg`)
                                     "
                                     :alt="exemplo.title"
                                 />
@@ -68,7 +68,7 @@
 </template>
 
 <script>
-// import db from '@/fb';
+import db from "~/plugins/fb";
 export default {
     name: "Carousel",
     data() {
@@ -77,22 +77,22 @@ export default {
         };
     },
     created() {
-        // // Acessa a coleção 'exemplos'
-        // db.collection('exemplos').onSnapshot((res) => {
-        // 	// Pega todas as mudanças feitas na coleção
-        // 	const changes = res.docChanges();
-        // 	// Para cada mudança
-        // 	changes.forEach((change) => {
-        // 		// Se a mudança for do tipo 'adicionada'
-        // 		if (change.type === 'added') {
-        // 			// Coloque a mudança no array exemplos
-        // 			this.exemplos.push({
-        // 				...change.doc.data(),
-        // 				id: change.doc.id,
-        // 			});
-        // 		}
-        // 	});
-        // });
+        // Acessa a coleção 'exemplos'
+        db.collection("exemplos").onSnapshot(res => {
+            // Pega todas as mudanças feitas na coleção
+            const changes = res.docChanges();
+            // Para cada mudança
+            changes.forEach(change => {
+                // Se a mudança for do tipo 'adicionada'
+                if (change.type === "added") {
+                    // Coloque a mudança no array exemplos
+                    this.exemplos.push({
+                        ...change.doc.data(),
+                        id: change.doc.id
+                    });
+                }
+            });
+        });
     }
 };
 </script>

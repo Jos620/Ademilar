@@ -61,7 +61,7 @@
 </template>
 
 <script>
-// import db from "~/assets/fb";
+import db from "~/plugins/fb";
 export default {
     data() {
         return {
@@ -139,23 +139,23 @@ export default {
         };
     },
     methods: {
-        // submitForm() {
-        //     // Aplica as regras e valida o formulário
-        //     this.$refs.Formulário.validate(valid => {
-        //         if (valid) {
-        //             // Adiciona o interessado na coleção
-        //             db.collection("clientes")
-        //                 .add(this.interessado)
-        //                 .then(
-        //                     alert("Sucesso! Em breve entraremos em contato!"),
-        //                     this.$refs.Formulário.resetFields()
-        //                 );
-        //         } else {
-        //             alert("Ocorreu um erro ao processar suas informações.");
-        //             return false;
-        //         }
-        //     });
-        // }
+        submitForm() {
+            // Aplica as regras e valida o formulário
+            this.$refs.Formulário.validate(valid => {
+                if (valid) {
+                    // Adiciona o interessado na coleção
+                    db.collection("clientes")
+                        .add(this.interessado)
+                        .then(
+                            alert("Sucesso! Em breve entraremos em contato!"),
+                            this.$refs.Formulário.resetFields()
+                        );
+                } else {
+                    alert("Ocorreu um erro ao processar suas informações.");
+                    return false;
+                }
+            });
+        }
     }
 };
 </script>
