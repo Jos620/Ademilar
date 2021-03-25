@@ -84,7 +84,7 @@
         <div
             class="footer__copy col-span-2 md:row-start-2 md:col-start-1 text-center md:text-xs md:flex justify-center items-end text-accent-500"
         >
-            <span>&copy; Ademilar | Almirante Tamandaré</span>
+            <span>&copy; 2021 Rafael Luiz | Investimentos</span>
         </div>
     </div>
 </template>
