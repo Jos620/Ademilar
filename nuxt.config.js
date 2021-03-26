@@ -9,6 +9,7 @@ export default {
         htmlAttrs: {
             lang: "pt-BR"
         },
+
         /**
          * Meta Tags pra SEO
          */
@@ -18,7 +19,57 @@ export default {
                 name: "viewport",
                 content: "width=device-width, initial-scale=1"
             },
-            { hid: "description", name: "description", content: "" }
+            {
+                hid: "description",
+                name: "description",
+                content:
+                    "Conheça mais sobre o consórcio e entenda como ele pode te auxiliar a realizar seu sonhos e alcançar suas metas!"
+            },
+            { "http-equiv": "content-language", content: "pt-br" },
+            {
+                "http-equiv": "content-type",
+                content: "text/html; charset=UTF-8"
+            },
+            {
+                name: "creator",
+                content: "Mateus Eduardo Ito Silva"
+            },
+            {
+                name: "keywords",
+                content:
+                    "consorcio, compra, compartilhada, ademilar, rafael, luiz, investimento, casa, imovel, automovel, carro, parcela, dinheiro, investir, almirante, tamandare"
+            },
+
+            /**
+             * Facebook
+             */
+            { property: "og:locale", content: "pt_BR" },
+            { property: "og:type", content: "website" },
+            { property: "og:title", content: "Rafael Luiz | Investimentos" },
+            {
+                property: "og:description",
+                content:
+                    "Conheça mais sobre o consórcio e entenda como ele pode te auxiliar a realizar seu sonhos e alcançar suas metas!"
+            },
+            {
+                property: "og:url",
+                content: "https://www.rafaelluizinvestimentos.com.br"
+            },
+            {
+                property: "og:image",
+                content: "~/assets/img/rafael-familia.jpg"
+            },
+
+            /**
+             * Twitter
+             */
+            { name: "twitter:card", content: "summary" },
+            { name: "twitter:title", content: "Rafael Luiz | Investimentos" },
+            {
+                name: "twitter:description",
+                content:
+                    "Conheça mais sobre o consórcio e entenda como ele pode te auxiliar a realizar seu sonhos e alcançar suas metas!"
+            }
         ],
         link: [{ rel: "icon", type: "image/x-icon", href: "/logo.png" }]
     },

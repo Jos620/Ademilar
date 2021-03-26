@@ -21,6 +21,7 @@
                     v-for="(link, i) in links"
                     :key="i"
                     :class="`float-link ${link.classes}`"
+                    target="_blank"
                 >
                     <img
                         :src="require(`~/assets/svg/social/${link.name}.svg`)"
@@ -54,13 +55,13 @@ export default {
                 {
                     name: "whatsapp",
                     link:
-                        "https://api.whatsapp.com/send?phone=554195104134&text=Oi%2C%20gostaria%20de%20simular%20um%20consórcio!",
+                        "https://api.whatsapp.com/send?phone=554196006993&text=Oi%2C%20gostaria%20de%20simular%20um%20consórcio!",
                     classes: "bg-green-400",
                     width: 30
                 },
                 {
                     name: "facebook",
-                    link: "https://www.facebook.com/unidadealmirantetamandare",
+                    link: "https://www.facebook.com/rafaelluizconsorcio",
                     classes: "bg-blue-400",
                     width: 36
                 },
