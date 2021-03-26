@@ -27,7 +27,7 @@
 
 <style scoped>
 .hero__title {
-    line-height: 1.4em;
+    line-height: 1em;
     position: relative;
     top: calc(45vh - 130px);
     overflow: visible;
