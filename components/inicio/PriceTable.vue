@@ -4,7 +4,7 @@
 			<h1 class="price-table__title">Tabela de Créditos</h1>
 		</div>
 		<div class="table">
-			<el-table :data="tableData" style="width: 100%" height="600" stripe>
+			<el-table :data="tableData" style="width: 100%" height="500" stripe>
 				<el-table-column prop="valor" label="Crédito"></el-table-column>
 				<el-table-column prop="parcela" label="Parcela"></el-table-column>
 				<el-table-column prop="promo" label="Promocional"></el-table-column>
@@ -25,7 +25,6 @@ export default {
 	methods: {
 		sortTable(prop) {
 			this.tableData.sort((a, b) => (a[prop] > b[prop] ? 1 : -1));
-			this.tableData.forEach(item => console.log(item['num']))
 		}
 	},
 
@@ -36,14 +35,13 @@ export default {
 				if (change.type === 'added') {
 					this.tableData.push({
 						...change.doc.data(),
-						id: change.doc.id
+						id: change.doc.id,
 					})
 				};
-				// console.log(change.doc.data()['num']);
 			});
-		})
 
-		this.sortTable('num');
+			this.sortTable('num');
+		})
 	}
 };
 </script>
