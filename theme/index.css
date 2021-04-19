@@ -2999,6 +2999,12 @@
 	font-size: 30px;
 }
 
+@media (max-width: 768px) {
+    .el-table td > .cell {
+        font-size: 16px;
+    }
+}
+
 div.cell {
 	font-size: 18px;
 	padding: 24px;

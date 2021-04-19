@@ -3,14 +3,32 @@
 		<div class="price-table__header">
 			<h1 class="price-table__title">Tabela de Créditos</h1>
 		</div>
-		<div class="table">
-			<el-table :data="tableData" style="width: 100%" height="500" stripe>
-				<el-table-column prop="valor" label="Crédito"></el-table-column>
-				<el-table-column prop="parcela" label="Parcela"></el-table-column>
-				<el-table-column prop="promo" label="Promocional"></el-table-column>
-				<el-table-column prop="meses" label="Meses"></el-table-column>
-			</el-table>
-		</div>
+        <div>
+            <div class="grid grid-cols-3 gap-12">
+                <div>
+                    <!-- TODO: terminar os filtros -->
+                    <h3 class="text-4xl font-bold mb-4">Filtros</h3>
+                    <div class="grid grid-cols-2">
+                        <div>
+                            <img src="~/assets/svg/tabela/motorcycle.svg" alt="Motos" class="h-32">
+                        </div>
+                    </div>
+                </div>
+                <el-table class="col-span-2" :data="tableData" height="500" stripe>
+                    <el-table-column prop="valor" label="Crédito" width="auto"></el-table-column>
+                    <el-table-column prop="parcela" label="Parcela" width="auto"></el-table-column>
+                    <el-table-column prop="promo" label="Promocional" width="auto"></el-table-column>
+                    <el-table-column prop="meses" label="Meses" width="130"></el-table-column>
+                    <el-table-column width="150">
+                        <template>
+                            <a href="https://api.whatsapp.com/send?phone=554196006993&text=Oi%2C%20gostaria%20de%20simular%20um%20consórcio!" target="_blank">
+                                <el-button type="primary" icon="el-icon-s-promotion">Contato</el-button>
+                            </a>
+                        </template>
+                    </el-table-column>
+                </el-table>
+            </div>
+        </div>
 	</div>
 </template>
 
@@ -47,25 +65,10 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.table {
-	min-width: 100%;
-	position: relative;
-}
-
 .price-table__title {
 	line-height: 1.4em;
 	margin: 1.4em 0;
 	text-align: right;
-}
-
-.sorts {
-	width: 100%;
-	z-index: 1;
-	display: flex;
-	position: absolute;
-	justify-content: space-around;
-	align-content: center;
-	top: -30px;
 }
 
 @screen sm {
