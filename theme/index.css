@@ -2999,10 +2999,22 @@
 	font-size: 30px;
 }
 
+@media (max-width: 830px) {
+	.el-table th > .cell {
+		font-size: 24px;
+	}
+}
+
 @media (max-width: 768px) {
     .el-table td > .cell {
         font-size: 16px;
     }
+}
+
+@media (max-width: 1100px) {
+	.el-table td > .cell {
+		font-size: 14px;
+	}
 }
 
 div.cell {
