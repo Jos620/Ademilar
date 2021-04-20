@@ -8,13 +8,13 @@
                 <div class="mt-12">
                     <!-- TODO: terminar os filtros -->
                     <div class="grid gap-8 grid-cols-1 place-items-center">
-                        <img src="~/assets/svg/tabela/motorcycle.svg" alt="Motos" class="sort">
-                        <img src="~/assets/svg/tabela/car.svg" alt="Motos" class="sort">
-                        <img src="~/assets/svg/tabela/truck.svg" alt="Motos" class="sort">
-                        <img src="~/assets/svg/tabela/house.svg" alt="Motos" class="sort">
+                        <img @click="filterTable('motorcycle')" src="~/assets/svg/tabela/motorcycle.svg" alt="Motos" class="sort">
+                        <img @click="filterTable('car')" src="~/assets/svg/tabela/car.svg" alt="Motos" class="sort">
+                        <img @click="filterTable('truck')" src="~/assets/svg/tabela/truck.svg" alt="Motos" class="sort">
+                        <img @click="filterTable('house')" src="~/assets/svg/tabela/house.svg" alt="Motos" class="sort">
                     </div>
                 </div>
-                <el-table class="col-span-3" :data="tableData" height="500" stripe>
+                <el-table class="col-span-3" :data="activeTable" height="500" stripe>
                     <el-table-column prop="valor" label="Crédito" width="auto"></el-table-column>
                     <el-table-column prop="parcela" label="Parcela" width="auto"></el-table-column>
                     <el-table-column prop="promo" label="Promocional" width="auto"></el-table-column>
@@ -38,6 +38,7 @@ export default {
 	data() {
 		return {
 			tableData: [],
+			activeTable: this.tableData
 		};
 	},
 
@@ -45,6 +46,10 @@ export default {
 		sortTable(prop) {
 			this.tableData.sort((a, b) => (a[prop] > b[prop] ? 1 : -1));
 		},
+
+		filterTable(prop) {
+			this.activeTable = this.tableData.filter(item => item['filter'] == prop);
+		}
 	},
 
 	mounted() {
