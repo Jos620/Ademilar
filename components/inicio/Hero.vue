@@ -60,6 +60,10 @@ h1 span {
 }
 
 @media screen and (max-width: 1220px) {
+    #hero-bg {
+        padding: 45px;
+    }
+
     .hero__title {
         font-size: 3em;
     }
@@ -74,6 +78,10 @@ h1 span {
 }
 
 @media screen and (max-width: 870px) {
+    #hero-bg {
+        padding: 40px 30px;
+    }
+
     .hero__title,
     .hero__title span {
         top: 0;

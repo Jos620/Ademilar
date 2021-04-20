@@ -56,7 +56,7 @@ export default {
     margin: -170px -75px 100px -75px;
 
     @media (max-width: 768px) {
-        margin: 30px auto 30px -20px;
+        margin: -30px auto 30px -20px;
     }
 
     @media (max-width: 870px) {

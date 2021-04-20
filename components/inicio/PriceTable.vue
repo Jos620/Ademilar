@@ -38,7 +38,7 @@ export default {
 	data() {
 		return {
 			tableData: [],
-			activeTable: this.tableData
+			activeTable: undefined
 		};
 	},
 
@@ -65,6 +65,7 @@ export default {
 			});
 
 			this.sortTable('num');
+			this.activeTable = this.tableData;
 
 		})
 	}
