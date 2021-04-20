@@ -47,12 +47,20 @@ export default {
 };
 </script>
 
-<style>
+<style lang="postcss">
 #hero {
     background-image: url('../assets/img/hero-bg (1).png');
     background-color: rgba(255, 255, 255, 0.2);
     background-position: center;
     background-size: cover;
     margin: -170px -75px 100px -75px;
+
+    @media (max-width: 768px) {
+        margin: 30px auto 30px -20px;
+    }
+
+    @media (max-width: 870px) {
+        background-image: none;
+    }   
 }
 </style>

@@ -65,11 +65,11 @@ h1 span {
     }
 
     .hero__image {
-        right: -10vw;
+        right: 10vw;
     }
 
     .elo {
-        transform: rotate(174deg);
+        display: none;
     }
 }
 
