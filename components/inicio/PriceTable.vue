@@ -4,17 +4,17 @@
 			<h1 class="price-table__title">Tabela de Créditos</h1>
 		</div>
         <div>
-            <div class="grid grid-cols-3 gap-12">
-                <div>
+            <div class="grid grid-cols-4 gap-12 place-items-center">
+                <div class="mt-12">
                     <!-- TODO: terminar os filtros -->
-                    <h3 class="text-4xl font-bold mb-4">Filtros</h3>
-                    <div class="grid grid-cols-2">
-                        <div>
-                            <img src="~/assets/svg/tabela/motorcycle.svg" alt="Motos" class="h-32">
-                        </div>
+                    <div class="grid gap-8 grid-cols-1 place-items-center">
+                        <img src="~/assets/svg/tabela/motorcycle.svg" alt="Motos" class="sort">
+                        <img src="~/assets/svg/tabela/car.svg" alt="Motos" class="sort">
+                        <img src="~/assets/svg/tabela/truck.svg" alt="Motos" class="sort">
+                        <img src="~/assets/svg/tabela/house.svg" alt="Motos" class="sort">
                     </div>
                 </div>
-                <el-table class="col-span-2" :data="tableData" height="500" stripe>
+                <el-table class="col-span-3" :data="tableData" height="500" stripe>
                     <el-table-column prop="valor" label="Crédito" width="auto"></el-table-column>
                     <el-table-column prop="parcela" label="Parcela" width="auto"></el-table-column>
                     <el-table-column prop="promo" label="Promocional" width="auto"></el-table-column>
@@ -40,13 +40,14 @@ export default {
 			tableData: [],
 		};
 	},
+
 	methods: {
 		sortTable(prop) {
 			this.tableData.sort((a, b) => (a[prop] > b[prop] ? 1 : -1));
-		}
+		},
 	},
 
-	created() {
+	mounted() {
 		db.collection("tabela").onSnapshot(res => {
 			const changes = res.docChanges();
 			changes.forEach(change => {
@@ -59,12 +60,19 @@ export default {
 			});
 
 			this.sortTable('num');
+
 		})
 	}
 };
 </script>
 
 <style lang="postcss" scoped>
+.sort {
+	@apply h-32 p-4;
+	@apply border-2 border-primary-400;
+	@apply cursor-pointer rounded-md;
+}
+
 .price-table__title {
 	line-height: 1.4em;
 	margin: 1.4em 0;

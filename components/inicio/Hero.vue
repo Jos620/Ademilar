@@ -1,31 +1,35 @@
 <template>
-    <el-row justify="space-between">
+    <el-row justify="space-between" id="hero-bg">
         <el-col :lg="8" :sm="12" class="title-wrapper">
-            <div class="relative">
+            <div>
                 <h1 class="hero__title">
                     Consórcio <br />
-                    <span class="md:ml-12">Compra <br /></span>
+                    <span class="md:ml-12">Compra</span><br />
                     Compartilhada
                 </h1>
-                <div class="absolute top-0 md:top-full right-0">
-                    <img class="elo" src="@/assets/svg/elo.svg" width="90" />
-                </div>
             </div>
         </el-col>
         <el-col :lg="16" :sm="12" class="hero__image">
-            <div class="relative">
+            <div class="relative flex">
                 <img
                     class="rafael-image"
                     src="~/assets/img/Rafael.png"
                     alt="Rafael Luiz"
-                    width="360"
+                    width="380"
                 />
+                <img class="absolute top-32 -right-96 elo" src="~/assets/svg/elo.svg" width="140">
             </div>
         </el-col>
+        <div class="w-full h-12 bg-white absolute left-0 bottom-0" style="mask-image: linear-gradient(to bottom, transparent 0%, black 100%);"></div>
     </el-row>
 </template>
 
 <style scoped>
+
+#hero-bg {
+    padding: 100px;
+}
+
 .hero__title {
     line-height: 1em;
     position: relative;
@@ -37,7 +41,8 @@
     display: flex;
     justify-content: center;
     position: relative;
-    right: -18vw;
+    right: 50%;
+    transform: translateX(50%);
     bottom: 30px;
 }
 
@@ -47,11 +52,11 @@ h1 span {
 }
 
 .rafael-image {
-    mask-image: linear-gradient(to top, transparent 8%, black 28%);
+    mask-image: linear-gradient(to top, transparent 4%, black 20%);
 }
 
 .elo {
-    transform: rotate(-11deg);
+    transform: rotate(-7deg);
 }
 
 @media screen and (max-width: 1220px) {

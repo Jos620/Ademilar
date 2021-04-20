@@ -4,6 +4,7 @@
             <hero />
         </section>
 
+
         <section id="carousel">
             <carousel />
         </section>
@@ -45,3 +46,13 @@ export default {
     }
 };
 </script>
+
+<style>
+#hero {
+    background-image: url('../assets/img/hero-bg (1).png');
+    background-color: rgba(255, 255, 255, 0.2);
+    background-position: center;
+    background-size: cover;
+    margin: -170px -75px 100px -75px;
+}
+</style>
